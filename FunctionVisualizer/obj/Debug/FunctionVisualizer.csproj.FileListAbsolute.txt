@@ -1,0 +1,14 @@
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\bin\Debug\FunctionVisualizer.exe.config
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\bin\Debug\FunctionVisualizer.exe
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\bin\Debug\FunctionVisualizer.pdb
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\Views\Window\MainWindow.g.cs
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\App.g.cs
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer_MarkupCompile.cache
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer_MarkupCompile.lref
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\Views\Window\MainWindow.baml
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.g.resources
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.Properties.Resources.resources
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.csproj.GenerateResource.cache
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.csproj.CoreCompileInputs.cache
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.exe
+D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.pdb
