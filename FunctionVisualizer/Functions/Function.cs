@@ -3,23 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FunctionVisualizer.Functions.Expression;
 
-namespace FunctionVisualizer.Function
+namespace FunctionVisualizer.Functions
 {
-    public class Function:IEnumerable
+    public class Function
     {
-        private IExpression _FunctionInstruction;
-        private double _StartInterval;
-        private double _EndInterval;
-        private double _Step;
+        private IExpression _Expression;
 
+        public double Calculate(double parametr) => _Expression.GetValue(parametr);
+        public Function(string funcStr) => _Expression = Interpret(funcStr);
 
-        public IExpression FunctionInstruction { get => _FunctionInstruction; set => _FunctionInstruction = value; }
-        public double StartInterval { get => _StartInterval; set => _StartInterval = value; }
-        public double EndInterval { get => _EndInterval; set => _EndInterval = value; }
-        public double Step { get => _Step; set => _Step = value; }
-
-        public IEnumerator GetEnumerator()
+        private IExpression Interpret(string funcStr) 
         {
             throw new NotImplementedException();
         }

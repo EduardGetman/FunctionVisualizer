@@ -5,26 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FunctionVisualizer.Function
+namespace FunctionVisualizer.Functions
 {
     class FunctionEnumerator : IEnumerator
     {
         private double _StartInterval;
         private double _EndInterval;
         private double _Step;
-        private IExpression _FunctionInstruction;
+        Function _Function;
         private double _Parameter;
 
-        public FunctionEnumerator(double startInterval, double endInterval, double step, IExpression expression)
+        public FunctionEnumerator(double startInterval, double endInterval, double step,  Function function)
         {
-            _StartInterval = startInterval;
+            _Parameter = _StartInterval = startInterval;
             _EndInterval = endInterval;
             _Step = step;
-            _Parameter = startInterval;
-            _FunctionInstruction = expression;
+            _Function = function;
         }
 
-        public object Current => _FunctionInstruction.GetValue(_Parameter);
+        public object Current => _Function.Calculate(_Parameter);
 
         public bool MoveNext()
         {

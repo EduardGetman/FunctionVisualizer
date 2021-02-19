@@ -59,19 +59,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Functions\FunctionControler.cs" />
     <Compile Include="Functions\FunctionEnumerator.cs" />
-    <Compile Include="Variable.cs" />
+    <Compile Include="Functions\Expression\Variable.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IExpression.cs" />
+    <Compile Include="Functions\Expression\IExpression.cs" />
     <Compile Include="Functions\Function.cs" />
     <Compile Include="FunctionValidator.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Number.cs" />
-    <Compile Include="Operation.cs" />
-    <Compile Include="MathFunc.cs" />
+    <Compile Include="Functions\Expression\Number.cs" />
+    <Compile Include="Functions\Expression\Operation.cs" />
+    <Compile Include="Functions\Expression\MathFunc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

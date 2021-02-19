@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FunctionVisualizer
+namespace FunctionVisualizer.Functions.Expression
 {
-   public interface IExpression 
+    public interface IExpression
     {
         double GetValue(double parametr);
     }

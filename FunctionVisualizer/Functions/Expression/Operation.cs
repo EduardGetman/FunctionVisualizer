@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FunctionVisualizer
+namespace FunctionVisualizer.Functions.Expression
 {
     public class Operation : IExpression
     {
         MathFunc func;
-        List <IExpression> expression;
+        List<IExpression> expression;
 
         public Operation(MathFunc func, params IExpression[] expression)
         {
@@ -34,6 +34,6 @@ namespace FunctionVisualizer
             else
                 throw new Exception($"Несоответствие количество параметров функции {MathFunc.Add}");
             throw new Exception($"Отсутствует подходящая реализация вычисления функции: {MathFunc.Add}");
-        } 
+        }
     }
 }
