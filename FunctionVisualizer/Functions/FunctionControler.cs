@@ -66,6 +66,7 @@ namespace FunctionVisualizer.Functions
             }
             return resultList.ToArray();
         }
+
         private void ReturnExceptionBadIntervals(double StartInterval, double EndInterval)
         {
             throw new Exception("Начало интервало должно быть меньше конца интервала." +
