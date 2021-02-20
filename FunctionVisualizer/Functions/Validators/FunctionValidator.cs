@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FunctionVisualizer.Functions.Validators.Tocken;
 
 namespace FunctionVisualizer.Functions.Validators
 {
     class FunctionValidator
     {
         private List<string> _ErrorList;
-        private List<TokenType> _Tokens;
+        private List<Token> _Tokens;
         private string _FunctionString;
         /// <summary>
         /// Задает правило следование токенов.
@@ -49,7 +50,7 @@ namespace FunctionVisualizer.Functions.Validators
         public FunctionValidator(string functionString)
         {
             _ErrorList = new List<string>();
-            _Tokens = new List<TokenType>();
+            _Tokens = new List<Token>();
             FunctionString = functionString;
             InitializeTokenTable();
             SplittingIntoTokens();
@@ -70,33 +71,27 @@ namespace FunctionVisualizer.Functions.Validators
         {
             foreach (var item in FunctionString)
             {
-                TokenType token = TokenType.Unknown;
-                if (IsLeftBracket(item)) token = TokenType.LeftBracket;
-                else if (IsRigthBracket(item)) token = TokenType.RigthBracket;
-                else if (IsNumber(item)) token = TokenType.Number;
-                else if (IsOperator(item)) token = TokenType.Operator;
-                else if (IsVariable(item)) token = TokenType.Variable;
-                else if (IsDot(item)) token = TokenType.Dot;
-                else _ErrorList.Add($"Встречен неизвестный символ: {item}");
+                Token token = new Token(item);
+                if (token.Type == TokenType.Unknown)
+                    _ErrorList.Add($"Встречен неизвестный символ: {item}");
                 _Tokens.Add(token);
             }
         }
 
         public bool IsBadString()
         {
-            return PositioningValues() || ComplianceBraces() || ValiditySymbols();
+            return PositioninTokens() || ComplianceBraces() || ValiditySymbols();
         }
         /// <summary>
-        /// Проверка позиций чисел.
-        /// Слева и справо от операторов должны находиться числа.
-        /// Два числа не могут стоять рядом.
+        /// Проверка позиций токенов.
+        /// Правила позиционирования токенов задаются таблицей
         /// </summary>
-        bool PositioningValues()
+        bool PositioninTokens()
         {
             bool result = false;
             for (int i = 0; i < _Tokens.Count; i++)
             {
-                if (!_TableTokenPosition[_Tokens[i]].Contains(_Tokens[i + 1]))
+                if (!_TableTokenPosition[_Tokens[i].Type].Contains(_Tokens[i + 1].Type))
                 {
                     result = true;
                     _ErrorList.Add("Неверно задана последовательность символов:" +
@@ -114,8 +109,8 @@ namespace FunctionVisualizer.Functions.Validators
             bool result = false;
             List<TokenType> BracketTockens = new List<TokenType>();
             foreach (var item in _Tokens)
-                if (item == TokenType.LeftBracket || item == TokenType.RigthBracket)
-                    BracketTockens.Add(item);
+                if (item.Type == TokenType.LeftBracket || item.Type == TokenType.RigthBracket)
+                    BracketTockens.Add(item.Type);
             while (0 < BracketTockens.Count)
             {
                 int leftBracket = -1;
@@ -147,16 +142,9 @@ namespace FunctionVisualizer.Functions.Validators
         bool ValiditySymbols()
         {
             foreach (var item in _Tokens)
-                if (item == TokenType.Unknown)
+                if (item.Type == TokenType.Unknown)
                     return false;
             return true;
         }
-
-        bool IsLeftBracket(char ch) => ch == '(';
-        bool IsRigthBracket(char ch) => ch == ')';
-        bool IsVariable(char ch) => ch >= 'A' && ch <= 'Z';
-        bool IsNumber(char ch) => ch >= '0' && ch <= '9';
-        bool IsOperator(char ch) => ch == '+' || ch == '-' || ch == '/' || ch == '*';
-        bool IsDot(char ch) => ch == '.';
     }
 }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FunctionVisualizer.Functions.Validators
+﻿
+namespace FunctionVisualizer.Functions.Validators.Tocken
 {
     enum TokenType
     {
