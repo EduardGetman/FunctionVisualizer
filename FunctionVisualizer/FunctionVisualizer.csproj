@@ -69,6 +69,8 @@
     <Compile Include="Functions\Expression\IExpression.cs" />
     <Compile Include="Functions\Function.cs" />
     <Compile Include="Functions\Validators\FunctionValidator.cs" />
+    <Compile Include="Functions\Validators\ValidationRules.cs" />
+    <Compile Include="Functions\Validators\ValidString.cs" />
     <Compile Include="FunctionValidator.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

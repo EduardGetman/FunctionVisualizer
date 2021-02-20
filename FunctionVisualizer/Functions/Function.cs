@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FunctionVisualizer.Functions.Expression;
+using FunctionVisualizer.Functions.Validators.Tocken;
 
 namespace FunctionVisualizer.Functions
 {
