@@ -12,7 +12,7 @@ namespace FunctionVisualizer.Functions
         private double _StartInterval;
         private double _EndInterval;
         private double _Step;
-        Function _Function;
+        private Function _Function;
         private double _Parameter;
 
         public FunctionEnumerator(double startInterval, double endInterval, double step,  Function function)

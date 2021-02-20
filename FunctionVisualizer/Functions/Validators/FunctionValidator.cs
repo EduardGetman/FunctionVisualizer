@@ -8,14 +8,14 @@ namespace FunctionVisualizer.Functions.Validators
 {
     class FunctionValidator
     {
-        List<string> _ErrorList;
-        List<TokenType> _Tokens;
-        string _FunctionString;
+        private List<string> _ErrorList;
+        private List<TokenType> _Tokens;
+        private string _FunctionString;
         /// <summary>
         /// Задает правило следование токенов.
         /// После Токена ключа могут следовать только токены значения
         /// </summary>
-        Dictionary<TokenType, TokenType[]> _TableTokenPosition;
+        private Dictionary<TokenType, TokenType[]> _TableTokenPosition;
 
         //TODO:Сделать с этим что-то. Очевидно что не стоит хранить правила в коде
         private void InitializeTokenTable() => _TableTokenPosition = new Dictionary<TokenType, TokenType[]>()
@@ -48,6 +48,8 @@ namespace FunctionVisualizer.Functions.Validators
 
         public FunctionValidator(string functionString)
         {
+            _ErrorList = new List<string>();
+            _Tokens = new List<TokenType>();
             FunctionString = functionString;
             InitializeTokenTable();
             SplittingIntoTokens();

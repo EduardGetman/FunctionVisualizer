@@ -7,7 +7,10 @@ namespace FunctionVisualizer.Functions.Expression
 {
     public class Number : IExpression
     {
-        double _Value;
+        private double _Value;
+
+        public Number(double value) => _Value = value;
+
         public double GetValue(double parametr) => _Value;
     }
 }

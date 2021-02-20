@@ -7,29 +7,30 @@ namespace FunctionVisualizer.Functions.Expression
 {
     public class Operation : IExpression
     {
-        MathFunc func;
-        List<IExpression> expression;
+        private MathFunc _Func;
+        private List<IExpression> _Expression;
 
         public Operation(MathFunc func, params IExpression[] expression)
         {
-            this.func = func;
-            this.expression.AddRange(expression);
+            _Expression = new List<IExpression>();
+            _Func = func;
+            _Expression.AddRange(expression);
         }
 
         public double GetValue(double parametr) => Calculate(parametr);
         private double Calculate(double parametr)
         {
-            if (expression.Count == 2)
-                switch (func)
+            if (_Expression.Count == 2)
+                switch (_Func)
                 {
                     case MathFunc.Add:
-                        return expression[0].GetValue(parametr) + expression[1].GetValue(parametr);
+                        return _Expression[0].GetValue(parametr) + _Expression[1].GetValue(parametr);
                     case MathFunc.Sub:
-                        return expression[0].GetValue(parametr) - expression[1].GetValue(parametr);
+                        return _Expression[0].GetValue(parametr) - _Expression[1].GetValue(parametr);
                     case MathFunc.Mul:
-                        return expression[0].GetValue(parametr) * expression[1].GetValue(parametr);
+                        return _Expression[0].GetValue(parametr) * _Expression[1].GetValue(parametr);
                     case MathFunc.Div:
-                        return expression[0].GetValue(parametr) / expression[1].GetValue(parametr);
+                        return _Expression[0].GetValue(parametr) / _Expression[1].GetValue(parametr);
                 }
             else
                 throw new Exception($"Несоответствие количество параметров функции {MathFunc.Add}");
