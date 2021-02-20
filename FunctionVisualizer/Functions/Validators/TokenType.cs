@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FunctionVisualizer
+namespace FunctionVisualizer.Functions.Validators
 {
     enum TokenType
     {

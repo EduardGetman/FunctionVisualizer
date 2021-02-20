@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FunctionVisualizer.Functions
+namespace FunctionVisualizer.Functions.Validators
 {
     class FunctionValidator
     {
@@ -48,7 +48,7 @@ namespace FunctionVisualizer.Functions
 
         public FunctionValidator(string functionString)
         {
-            this.FunctionString = functionString;
+            FunctionString = functionString;
             InitializeTokenTable();
             SplittingIntoTokens();
         }
@@ -56,7 +56,7 @@ namespace FunctionVisualizer.Functions
         /// Коректируюет строку функции.
         /// </summary>
         /// <returns> Строка верхнего регистра и без пробелов</returns>
-        public static string CorectedString(string str) 
+        public static string CorectedString(string str)
         {
             string result = "";
             for (int i = 0; i < str.Length; i++)
@@ -65,7 +65,7 @@ namespace FunctionVisualizer.Functions
             return result.ToUpper();
         }
         private void SplittingIntoTokens()
-        {            
+        {
             foreach (var item in FunctionString)
             {
                 TokenType token = TokenType.Unknown;
@@ -94,11 +94,11 @@ namespace FunctionVisualizer.Functions
             bool result = false;
             for (int i = 0; i < _Tokens.Count; i++)
             {
-                if (!_TableTokenPosition[_Tokens[i]].Contains(_Tokens[i+1]))
+                if (!_TableTokenPosition[_Tokens[i]].Contains(_Tokens[i + 1]))
                 {
                     result = true;
                     _ErrorList.Add("Неверно задана последовательность символов:" +
-                        $" {_FunctionString[i]} находиться перед {_FunctionString[i+1]}");
+                        $" {_FunctionString[i]} находиться перед {_FunctionString[i + 1]}");
                 }
             }
             return result;
@@ -120,15 +120,15 @@ namespace FunctionVisualizer.Functions
                 int rigthBracket = -2;
                 for (int i = 0; i < BracketTockens.Count; i++)
                 {
-                    leftBracket = (BracketTockens[i] == TokenType.LeftBracket) ? i : leftBracket;
-                    rigthBracket = (BracketTockens[i] == TokenType.RigthBracket) ? i : rigthBracket;
-                    if (BracketsFounds(leftBracket,rigthBracket))
+                    leftBracket = BracketTockens[i] == TokenType.LeftBracket ? i : leftBracket;
+                    rigthBracket = BracketTockens[i] == TokenType.RigthBracket ? i : rigthBracket;
+                    if (BracketsFounds(leftBracket, rigthBracket))
                     {
                         BracketTockens.RemoveAt(leftBracket);
                         BracketTockens.RemoveAt(rigthBracket);
                     }
                 }
-                if (!BracketsFounds(leftBracket,rigthBracket))
+                if (!BracketsFounds(leftBracket, rigthBracket))
                 {
                     _ErrorList.Add("Ненайденная пара левая скобка - правая кобка");
                     result = true;
@@ -154,7 +154,7 @@ namespace FunctionVisualizer.Functions
         bool IsRigthBracket(char ch) => ch == ')';
         bool IsVariable(char ch) => ch >= 'A' && ch <= 'Z';
         bool IsNumber(char ch) => ch >= '0' && ch <= '9';
-        bool IsOperator(char ch) => ch == '+' || ch == '-' || ch == '/'|| ch == '*';
+        bool IsOperator(char ch) => ch == '+' || ch == '-' || ch == '/' || ch == '*';
         bool IsDot(char ch) => ch == '.';
     }
 }

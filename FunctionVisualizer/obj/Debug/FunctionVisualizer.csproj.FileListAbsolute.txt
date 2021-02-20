@@ -10,6 +10,5 @@ D:\Эдик\Программирование (Обучение)\GetmanApp\Виз
 D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.csproj.CoreCompileInputs.cache
 D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.exe
 D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.pdb
-D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\FunctionVisualizer.csprojAssemblyReference.cache
 D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\MainWindow.g.cs
 D:\Эдик\Программирование (Обучение)\GetmanApp\Визуализатор функций\FunctionVisualizer\FunctionVisualizer\obj\Debug\MainWindow.baml
