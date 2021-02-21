@@ -1,18 +1,14 @@
 ﻿using FunctionVisualizer.Functions.Validators.Tocken;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FunctionVisualizer.Functions.Validators
 {
-    class VerifiedString
+    public class ValidString
     {
         private List<string> _ErrorList;
         private string _FunctionString;
         private List<Token> _Tokens;
-        ValidationRules _ValidationRules;
+        private ValidationRules _ValidationRules;
         public bool IsValid { get; private set; }      
 
         public string FunctionString
@@ -26,25 +22,6 @@ namespace FunctionVisualizer.Functions.Validators
                 _FunctionString = value;
             }
         }
-
-        public VerifiedString(string functionString) => _FunctionString = functionString;
-
-        private bool Validation() => PositioninTokens() && ComplianceBraces() && ValiditySymbols();
-
-        private bool PositioninTokens()
-        {
-            bool result = false;
-            for (int i = 0; i < _Tokens.Count; i++)
-            {
-                if (!_ValidationRules.TablePosition[_Tokens[i].Type].Contains(_Tokens[i + 1].Type))
-                {
-                    result = true;
-                    _ErrorList.Add("Неверно задана последовательность символов:" +
-                        $" {_FunctionString[i]} находиться перед {_FunctionString[i + 1]}");
-                }
-            }
-            return result;
-        }
         public static string CorectedString(string str)
         {
             string result = "";
@@ -54,6 +31,24 @@ namespace FunctionVisualizer.Functions.Validators
             return result.ToUpper();
         }
 
+        public ValidString(string functionString) => _FunctionString = functionString;
+
+        private bool Validation() => PositioninTokens() && ComplianceBraces() && ValiditySymbols();
+
+        private bool PositioninTokens()
+        {
+            bool result = false;
+            for (int i = 0; i < _Tokens.Count; i++)
+            {
+                if (!_ValidationRules.TableContainsToken(_Tokens[i].Type, _Tokens[i + 1].Type))
+                {
+                    result = true;
+                    _ErrorList.Add("Неверно задана последовательность символов:" +
+                        $" {_FunctionString[i]} находиться перед {_FunctionString[i + 1]}");
+                }
+            }
+            return result;
+        }
         private List<Token> SplittingIntoTokens(string str)
         {
             List<Token> result = new List<Token>();
@@ -61,12 +56,11 @@ namespace FunctionVisualizer.Functions.Validators
                 result.Add(new Token(item));
             return result;
         }
-        private void SplittingIntoTokens() => _Tokens = SplittingIntoTokens(_FunctionString);
         /// <summary>
         /// Проверка соответствия скобок
         /// Перед каждой закрывающейся скобкой должна быть открывающаяся
         /// </summary>
-        bool ComplianceBraces()
+        private bool ComplianceBraces()
         {
             bool result = true;
             List<TokenType> BracketTockens = new List<TokenType>();

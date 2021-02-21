@@ -9,27 +9,23 @@ namespace FunctionVisualizer.Functions
 {
     class FunctionEnumerator : IEnumerator
     {
-        private double _StartInterval;
-        private double _EndInterval;
-        private double _Step;
+        private СalculData _Data;
         private Function _Function;
         private double _Parameter;
 
-        public FunctionEnumerator(double startInterval, double endInterval, double step,  Function function)
+        public FunctionEnumerator(СalculData data,  Function function)
         {
-            _Parameter = _StartInterval = startInterval;
-            _EndInterval = endInterval;
-            _Step = step;
+            _Data = data;
+            _Parameter = data.StartInterval;
             _Function = function;
         }
-
         public object Current => _Function.Calculate(_Parameter);
 
         public bool MoveNext()
         {
-            if (_Parameter < _EndInterval && _Parameter > _StartInterval)
+            if (_Parameter < _Data.EndInterval)
             {
-                _Parameter += _Step;
+                _Parameter += _Data.Step;
                 return true;
             }
             else return false;
@@ -37,7 +33,7 @@ namespace FunctionVisualizer.Functions
 
         public void Reset()
         {
-            _Parameter = _StartInterval;
+            _Parameter = _Data.StartInterval;
         }
     }
 }

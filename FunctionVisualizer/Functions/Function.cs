@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using FunctionVisualizer.Functions.Expression;
 using FunctionVisualizer.Functions.Validators.Tocken;
-
+using FunctionVisualizer.Functions.Validators;
 namespace FunctionVisualizer.Functions
 {
     public class Function
@@ -13,9 +13,9 @@ namespace FunctionVisualizer.Functions
         private IExpression _Expression;
 
         public double Calculate(double parametr) => _Expression.GetValue(parametr);
-        public Function(string funcStr) => _Expression = Interpret(funcStr);
+        public Function(ValidString funcStr) => _Expression = Interpret(funcStr);
 
-        private IExpression Interpret(string funcStr) 
+        private IExpression Interpret(ValidString funcStr) 
         {
             throw new NotImplementedException();
         }

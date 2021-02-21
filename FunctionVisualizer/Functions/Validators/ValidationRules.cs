@@ -1,6 +1,6 @@
 ﻿using FunctionVisualizer.Functions.Validators.Tocken;
 using System.Collections.Generic;
-
+using System.Linq;
 namespace FunctionVisualizer.Functions.Validators
 {
     class ValidationRules
@@ -14,10 +14,11 @@ namespace FunctionVisualizer.Functions.Validators
         public ValidationRules()
         {
             _TableTokenPosition = InitializeTokenTable();
-        }
+        }        
+        public TokenType[] this[TokenType key] { get => _TableTokenPosition[key]; }
 
-        internal Dictionary<TokenType, TokenType[]> TablePosition
-        { get => _TableTokenPosition;}
+        public bool TableContainsToken(TokenType key, TokenType value) => 
+            _TableTokenPosition[key].Contains(value);
 
         //TODO: Изменить способ инициализации словоря правил
         private Dictionary<TokenType, TokenType[]> InitializeTokenTable()
@@ -39,7 +40,6 @@ namespace FunctionVisualizer.Functions.Validators
                                                            TokenType.RigthBracket },
                 [TokenType.Variable] = new TokenType[] { TokenType.Variable,
                                                        TokenType.RigthBracket },
-
             };
         }
     }
