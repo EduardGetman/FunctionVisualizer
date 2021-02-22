@@ -47,6 +47,14 @@
   </Class>
   <Class Name="FunctionVisualizer.Functions.FunctionsControler" BaseTypeListCollapsed="true">
     <Position X="8.5" Y="6.75" Width="3.75" />
+    <AssociationLine Name="_Data" Type="FunctionVisualizer.Functions.СalculData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.031" Y="6.75" />
+        <Point X="12.031" Y="6.375" />
+        <Point X="14.125" Y="6.375" />
+        <Point X="14.125" Y="5.69" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAQAAiAAAABAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Functions\FunctionControler.cs</FileName>
@@ -72,7 +80,7 @@
   <Class Name="FunctionVisualizer.Functions.Validators.ValidString">
     <Position X="3.75" Y="6.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAQUAAEgAACgBAAAQAAAAAAUAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAABAAAAQQAAEgAACgBAAAQAAAAAAUCAAAAAQAAAAA=</HashCode>
       <FileName>Functions\Validators\ValidString.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

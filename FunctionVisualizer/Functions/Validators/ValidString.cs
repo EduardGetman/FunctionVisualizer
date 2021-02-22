@@ -28,9 +28,21 @@ namespace FunctionVisualizer.Functions.Validators
             for (int i = 0; i < str.Length; i++)
                 if (!char.IsWhiteSpace(str[i]))
                     result += str[i];
-            return result.ToUpper();
+            result.ToUpper();
+            return AddMultiplue(result);
         }
-
+        private static string AddMultiplue(string str)
+        {
+            string result = "";
+            for (int i = 0; i < str.Length-1; i++)
+            {
+                result += str[i];
+                if (Token.Identify(str[i]) == TokenType.Number & Token.Identify(str[i +1 ]) == TokenType.Variable ||
+                    Token.Identify(str[i]) == TokenType.Variable & Token.Identify(str[i + 1]) == TokenType.Number)
+                result += '*';               
+            }
+            return result;
+        }
         public ValidString(string functionString) => _FunctionString = functionString;
 
         private bool Validation() => PositioninTokens() && ComplianceBraces() && ValiditySymbols();
@@ -60,28 +72,16 @@ namespace FunctionVisualizer.Functions.Validators
         /// Проверка соответствия скобок
         /// Перед каждой закрывающейся скобкой должна быть открывающаяся
         /// </summary>
+
         private bool ComplianceBraces()
         {
             bool result = true;
-            List<TokenType> BracketTockens = new List<TokenType>();
+            int bracketBalance = 0;
             foreach (var item in _Tokens)
-                if (item.Type == TokenType.LeftBracket || item.Type == TokenType.RigthBracket)
-                    BracketTockens.Add(item.Type);
-            while (0 < BracketTockens.Count)
             {
-                int leftBracket = -1;
-                int rigthBracket = -2;
-                for (int i = 0; i < BracketTockens.Count; i++)
-                {
-                    leftBracket = BracketTockens[i] == TokenType.LeftBracket ? i : leftBracket;
-                    rigthBracket = BracketTockens[i] == TokenType.RigthBracket ? i : rigthBracket;
-                    if (BracketsFounds(leftBracket, rigthBracket))
-                    {
-                        BracketTockens.RemoveAt(leftBracket);
-                        BracketTockens.RemoveAt(rigthBracket);
-                    }
-                }
-                if (!BracketsFounds(leftBracket, rigthBracket))
+                bracketBalance += (item.Type == TokenType.LeftBracket) ? 1 : 0;
+                bracketBalance += (item.Type == TokenType.RigthBracket) ? -1 : 0;
+                if (bracketBalance < 0)
                 {
                     _ErrorList.Add("Ненайденная пара левая скобка - правая кобка");
                     result = false;
@@ -89,8 +89,7 @@ namespace FunctionVisualizer.Functions.Validators
             }
             return result;
 
-        }
-        private bool BracketsFounds(int left, int rigth) => left < rigth && left >= 0 && rigth >= 0;
+        }       
 
         /// <summary>
         /// Проверка допустимых символов
