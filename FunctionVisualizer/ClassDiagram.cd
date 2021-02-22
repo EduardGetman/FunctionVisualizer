@@ -3,7 +3,7 @@
   <Class Name="FunctionVisualizer.Functions.Expression.Number" BaseTypeListCollapsed="true">
     <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAABAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Functions\Expression\Number.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -19,9 +19,6 @@
       <HashCode>ABAAAAAAIAAAAAAAAAAAgAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Functions\Expression\Operation.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_Func" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Field Name="_Expression" />
     </ShowAsCollectionAssociation>
@@ -30,7 +27,7 @@
   <Class Name="FunctionVisualizer.Functions.Expression.Variable" BaseTypeListCollapsed="true">
     <Position X="2.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Functions\Expression\Variable.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -38,7 +35,7 @@
   <Class Name="FunctionVisualizer.Functions.Function">
     <Position X="8.75" Y="4" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAgAAAgAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAgAAAgAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Functions\Function.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -80,7 +77,7 @@
   <Class Name="FunctionVisualizer.Functions.Validators.ValidString">
     <Position X="3.75" Y="6.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAQQAAEgAACgBAAAQAAAAAAUCAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAABAAAAQQAAEgACCgBAABQAAAAAAUCAAAAAQABAAA=</HashCode>
       <FileName>Functions\Validators\ValidString.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -105,6 +102,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Functions\Validators\ValidationRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FunctionVisualizer.Functions.Interpretation.InterpretedString">
+    <Position X="9.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAABACAABAAAAAAAAAAAQAAAEkAAA=</HashCode>
+      <FileName>Functions\Interpretation\InterpretedString.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="FunctionVisualizer.Functions.СalculData">

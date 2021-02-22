@@ -9,8 +9,10 @@ namespace FunctionVisualizer.Functions.Expression
     {
         private double _Value;
 
-        public Number(double value) => _Value = value;
+        public Number(double value) => Value = value;
 
-        public double GetValue(double parametr) => _Value;
+        public double Value { get => _Value; set => _Value = value; }
+
+        public double GetValue(double parametr) => Value;
     }
 }

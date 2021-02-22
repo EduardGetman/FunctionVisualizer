@@ -21,7 +21,11 @@ namespace FunctionVisualizer.Functions.Validators
                 IsValid = Validation();
                 _FunctionString = value;
             }
-        }
+        }        
+        public int Length { get => _FunctionString.Length;}
+        internal List<Token> Tokens { get => _Tokens; private set => _Tokens = value; }
+
+        public char this[int i] { get => _FunctionString[i];}
         public static string CorectedString(string str)
         {
             string result = "";
@@ -50,9 +54,9 @@ namespace FunctionVisualizer.Functions.Validators
         private bool PositioninTokens()
         {
             bool result = false;
-            for (int i = 0; i < _Tokens.Count; i++)
+            for (int i = 0; i < Tokens.Count; i++)
             {
-                if (!_ValidationRules.TableContainsToken(_Tokens[i].Type, _Tokens[i + 1].Type))
+                if (!_ValidationRules.TableContainsToken(Tokens[i].Type, Tokens[i + 1].Type))
                 {
                     result = true;
                     _ErrorList.Add("Неверно задана последовательность символов:" +
@@ -77,7 +81,7 @@ namespace FunctionVisualizer.Functions.Validators
         {
             bool result = true;
             int bracketBalance = 0;
-            foreach (var item in _Tokens)
+            foreach (var item in Tokens)
             {
                 bracketBalance += (item.Type == TokenType.LeftBracket) ? 1 : 0;
                 bracketBalance += (item.Type == TokenType.RigthBracket) ? -1 : 0;
@@ -97,9 +101,9 @@ namespace FunctionVisualizer.Functions.Validators
         /// </summary>
         private bool ValiditySymbols()
         {
-            for (int i = 0; i < _Tokens.Count; i++)
+            for (int i = 0; i < Tokens.Count; i++)
             {
-                if (_Tokens[i].Type == TokenType.Unknown)
+                if (Tokens[i].Type == TokenType.Unknown)
                 {
                     _ErrorList.Add($"Встречен неизвестный символ: {_FunctionString[i]}");
                     return false;
