@@ -22,22 +22,24 @@ namespace FunctionVisualizer.Functions
             _Expression = Interpret(funcStr);
         }
 
-        private IExpression Interpret(ValidString funcStr) 
+        private IExpression Interpret(ValidString funcStr)
         {
             Stack<IExpression> stackValues = new Stack<IExpression>();
-            Stack<OperatorsType> stackOperators = new Stack<OperatorsType>();
+            Stack<InterpretedOperation> stackOperators = new Stack<InterpretedOperation>();
             InterpretedString interpStr = new InterpretedString(funcStr);
             for (int i = 0; i < interpStr.Length; i++)
             {
+                InterpretedOperation operation;
                 switch (interpStr.WordsToken[i])
                 {
                     case TokenType.LeftBracket:
-                        stackOperators.Push(OperatorsType.LBracket);
+                        operation = new InterpretedOperation(interpStr.Words[i][0]);
+                        stackOperators.Push(operation);
                         break;
                     case TokenType.RigthBracket:
-                        while (stackOperators.Peek() != OperatorsType.LBracket)
+                        while (stackOperators.Peek().Priority != OperatorsPriority.LBracket)
                         {
-                            IExpression newOperator = new Operation(SwitchOperation(stackOperators.Pop()),
+                            IExpression newOperator = new Operation(stackOperators.Pop().Func,
                                 stackValues.Pop(), stackValues.Pop());
                             stackValues.Push(newOperator);
                         }
@@ -50,29 +52,21 @@ namespace FunctionVisualizer.Functions
                         stackValues.Push(new Number(Convert.ToDouble(interpStr.Words[i])));
                         break;
                     case TokenType.Operator:
-                        OperatorsType _operator = interpStr.GetOperatorsType(i);
-                        if (stackOperators.Peek() < _operator && stackOperators.Peek() != OperatorsType.LBracket)
+                        operation = new InterpretedOperation(interpStr.Words[i][0]);
+                        if (stackOperators.Peek().Priority < operation.Priority &&
+                            stackOperators.Peek().Priority != OperatorsPriority.LBracket && stackOperators.Count > 0)
                         {
-                            IExpression newOperator = new Operation(SwitchOperation(stackOperators.Pop()),
+                            IExpression newOperator = new Operation(stackOperators.Pop().Func,
                                 stackValues.Pop(), stackValues.Pop());
-                            stackValues.Push( newOperator);
+                            stackValues.Push(newOperator);
                         }
-                            stackOperators.Push(_operator);
-                        break;                    
+                        stackOperators.Push(operation);
+                        break;
                     default:
                         throw new Exception("Произошел неверный парсинг строки");
                 }
             }
             return stackValues.Pop();
-        }
-        private MathFunc SwitchOperation(OperatorsType type) 
-        {
-            if (type.ToString() == "Add") return MathFunc.Add;
-            else if (type.ToString() == "Div") return MathFunc.Div;
-            else if (type.ToString() == "Mul") return MathFunc.Mul;
-            else if (type.ToString() == "Sub") return MathFunc.Sub;
-            else throw new Exception("Ошибка алгоритма интерпритации." +
-                        " В функцию попали неверные данные");
         }
     }
 }

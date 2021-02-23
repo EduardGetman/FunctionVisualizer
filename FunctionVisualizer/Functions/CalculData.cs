@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace FunctionVisualizer.Functions
 {
-    public struct СalculData
+    public struct CalculData
     {
         public double StartInterval;
         public double EndInterval;
         public double Step;
 
-        public СalculData(double startInterval, double endInterval, double step)
+        public CalculData(double startInterval, double endInterval, double step)
         {
             if (endInterval <= startInterval)
                 throw new Exception("Начало интервало должно быть меньше конца интервала." +

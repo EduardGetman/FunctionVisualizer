@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="13">
+                 Начало интервала:
+            </TextBlock>
+            <TextBox  x:Name="StartIntervalTBox" Grid.Column ="1"></TextBox>
+            <TextBlock Grid.Column="2" VerticalAlignment="Center" FontSize="13">
+                Конец интервала:
+            </TextBlock>
+            <TextBox x:Name="EndIntervalTBox" Grid.Column ="3"></TextBox>
+        </Grid>
+        <TextBlock Grid.Row="1"  Grid.Column="0" FontSize="20" HorizontalAlignment="Center" >F(X) = </TextBlock>
+        <TextBox x:Name="FunctionTBox" Grid.Row="1" Grid.Column="1"/>
+        <Button x:Name="Button1" Content="Нарисовать" Grid.Row="1" 
+                Grid.Column="2" Click="Button1_Click"></Button>
+        <TextBlock x:Name="OutputTB" Grid.Row="3" Grid.Column="1"/>
     </Grid>
 </Window>

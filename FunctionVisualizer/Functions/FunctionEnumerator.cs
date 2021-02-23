@@ -9,11 +9,11 @@ namespace FunctionVisualizer.Functions
 {
     class FunctionEnumerator : IEnumerator
     {
-        private СalculData _Data;
+        private CalculData _Data;
         private Function _Function;
         private double _Parameter;
 
-        public FunctionEnumerator(СalculData data,  Function function)
+        public FunctionEnumerator(CalculData data,  Function function)
         {
             _Data = data;
             _Parameter = data.StartInterval;

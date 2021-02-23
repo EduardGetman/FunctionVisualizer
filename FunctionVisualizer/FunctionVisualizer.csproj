@@ -62,7 +62,8 @@
     <Compile Include="Functions\FunctionControler.cs" />
     <Compile Include="Functions\FunctionEnumerator.cs" />
     <Compile Include="Functions\Expression\Variable.cs" />
-    <Compile Include="Functions\Interpretation\OperatorsType.cs" />
+    <Compile Include="Functions\Interpretation\InterpretedOperation.cs" />
+    <Compile Include="Functions\Interpretation\OperatorsPriority.cs" />
     <Compile Include="Functions\Validators\Token.cs" />
     <Compile Include="Functions\Validators\TokenType.cs" />
   </ItemGroup>
@@ -71,8 +72,7 @@
     <Compile Include="Functions\Function.cs" />
     <Compile Include="Functions\Validators\ValidationRules.cs" />
     <Compile Include="Functions\Validators\ValidString.cs" />
-    <Compile Include="Functions\СalculData.cs" />
-    <Compile Include="FunctionValidator.cs" />
+    <Compile Include="Functions\CalculData.cs" />
     <Compile Include="Functions\Interpretation\InterpretedString.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

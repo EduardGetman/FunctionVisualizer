@@ -7,10 +7,10 @@ namespace FunctionVisualizer.Functions
     class FunctionsControler : IEnumerable
     {
         Function _Function;
-        private СalculData _Data;
+        private CalculData _Data;
 
         ValidString FunctionStr { set => _Function = new Function(value); }
-        public FunctionsControler(СalculData data,ValidString funcStr)
+        public FunctionsControler(CalculData data,ValidString funcStr)
         {
             _Function = new Function(funcStr);
             _Data = data;

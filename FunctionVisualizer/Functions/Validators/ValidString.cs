@@ -16,8 +16,9 @@ namespace FunctionVisualizer.Functions.Validators
             get => _FunctionString; set
             {
                 _ErrorList = new List<string>();
+                _Tokens = new List<Token>();
                 value = CorectedString(value);
-                SplittingIntoTokens(value);
+                _Tokens = SplittingIntoTokens(value);
                 IsValid = Validation();
                 _FunctionString = value;
             }
@@ -45,38 +46,42 @@ namespace FunctionVisualizer.Functions.Validators
                     Token.Identify(str[i]) == TokenType.Variable & Token.Identify(str[i + 1]) == TokenType.Number)
                 result += '*';               
             }
+            result += str[str.Length-1];
             return result;
         }
-        public ValidString(string functionString) => _FunctionString = functionString;
+        public ValidString(string functionString)
+        {
+            _ValidationRules = new ValidationRules();
+            FunctionString = functionString;
+        }
 
         private bool Validation() => PositioninTokens() && ComplianceBraces() && ValiditySymbols();
-
+        private List<Token> SplittingIntoTokens(string str)
+        {
+            List<Token> result = new List<Token>();
+            foreach (var item in str)
+                result.Add(new Token(item));
+            return result;
+        }
         private bool PositioninTokens()
         {
-            bool result = false;
-            for (int i = 0; i < Tokens.Count; i++)
+            bool result = true;
+            for (int i = 0; i < Tokens.Count-1; i++)
             {
                 if (!_ValidationRules.TableContainsToken(Tokens[i].Type, Tokens[i + 1].Type))
                 {
-                    result = true;
+                    result = false;
                     _ErrorList.Add("Неверно задана последовательность символов:" +
                         $" {_FunctionString[i]} находиться перед {_FunctionString[i + 1]}");
                 }
             }
             return result;
         }
-        private List<Token> SplittingIntoTokens(string str)
-        {
-            List<Token> result = new List<Token>();
-            foreach (var item in FunctionString)            
-                result.Add(new Token(item));
-            return result;
-        }
+   
         /// <summary>
         /// Проверка соответствия скобок
         /// Перед каждой закрывающейся скобкой должна быть открывающаяся
         /// </summary>
-
         private bool ComplianceBraces()
         {
             bool result = true;

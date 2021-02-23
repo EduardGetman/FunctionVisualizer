@@ -43,26 +43,15 @@ namespace FunctionVisualizer.Functions.Interpretation
                     word = "" + validStr[i];
                 }
             }
+            _Words.Add(word);
+            _WordsToken.Add(curentType);
         }
-        public OperatorsType GetOperatorsType(int index) 
+        public InterpretedOperation GetOperatorsType(int index) 
         {
             if (Words[index].Length == 1 && WordsToken[index] == TokenType.Operator)
-            {
-                switch (Words[index][0])                    
-                {
-                    case '+':
-                        return OperatorsType.Add;
-                    case '-':
-                        return OperatorsType.Sub;
-                    case '*':
-                        return OperatorsType.Mul;
-                    case '/':
-                        return OperatorsType.Div;
-                    default:
-                        throw new Exception("Слово по индексу не является оператором");
-                }
-            }
-            throw new Exception("Слово по индексу не является оператором");
+                return new InterpretedOperation(Words[index][0]);
+            else
+                throw new Exception("Слово по индексу не является оператором");
         }
         bool isStringAndDot(TokenType token1, TokenType token2)
         {

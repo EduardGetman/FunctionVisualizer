@@ -31,6 +31,7 @@ namespace FunctionVisualizer.Functions.Validators
                                                          TokenType.RigthBracket,
                                                          TokenType.Variable},
                 [TokenType.Number] = new TokenType[] { TokenType.Operator,
+                                                        TokenType.Number,
                                                      TokenType.RigthBracket,
                                                      TokenType.Dot},
                 [TokenType.Operator] = new TokenType[] {  TokenType.Number,
@@ -39,6 +40,7 @@ namespace FunctionVisualizer.Functions.Validators
                 [TokenType.RigthBracket] = new TokenType[] { TokenType.Operator,
                                                            TokenType.RigthBracket },
                 [TokenType.Variable] = new TokenType[] { TokenType.Variable,
+                                                        TokenType.Operator,
                                                        TokenType.RigthBracket },
             };
         }

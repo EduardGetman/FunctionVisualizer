@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FunctionVisualizer.Functions.Interpretation
 {
-    public enum OperatorsType
+    public enum OperatorsPriority
     {
         Add = 1,
         Sub = 1,
