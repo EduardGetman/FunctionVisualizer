@@ -25,10 +25,11 @@ namespace FunctionVisualizer.Functions.Interpretation
         void parseString(ValidString validStr)
         {
             TokenType curentType = validStr.Tokens[0].Type;
-            string word = "";
-            for (int i = 0; i < validStr.Length; i++)
+            string word = ""+validStr[0];
+            for (int i = 1; i < validStr.Length; i++)
             {
-                if (validStr.Tokens[i].Type == curentType)
+                if ((validStr.Tokens[i].Type == curentType && curentType == TokenType.Number) 
+                    || validStr.Tokens[i].Type == TokenType.Dot)
                     word += validStr[i];
                 else
                 {

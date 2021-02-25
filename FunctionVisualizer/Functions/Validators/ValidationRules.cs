@@ -39,8 +39,7 @@ namespace FunctionVisualizer.Functions.Validators
                                                    TokenType.Variable },
                 [TokenType.RigthBracket] = new TokenType[] { TokenType.Operator,
                                                            TokenType.RigthBracket },
-                [TokenType.Variable] = new TokenType[] { TokenType.Variable,
-                                                        TokenType.Operator,
+                [TokenType.Variable] = new TokenType[] {TokenType.Operator,
                                                        TokenType.RigthBracket },
             };
         }

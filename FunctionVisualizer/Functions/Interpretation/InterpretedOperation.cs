@@ -33,6 +33,14 @@ namespace FunctionVisualizer.Functions.Interpretation
                     priority = OperatorsPriority.Div;
                     func = MathFunc.Div;
                     break;
+                case '(':
+                    priority = OperatorsPriority.LBracket;
+                    func = MathFunc.Undefined;
+                    break;
+                case ')':
+                    priority = OperatorsPriority.RBracket;
+                    func = MathFunc.Undefined;
+                    break;
                 default:
                     throw new Exception("Слово по индексу не является оператором");
             }

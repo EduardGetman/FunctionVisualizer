@@ -29,6 +29,6 @@ namespace FunctionVisualizer.Functions.Validators.Tocken
         static bool IsVariable(char ch) => ch >= 'A' && ch <= 'Z';
         static bool IsNumber(char ch) => ch >= '0' && ch <= '9';
         static bool IsOperator(char ch) => ch == '+' || ch == '-' || ch == '/' || ch == '*';
-        static bool IsDot(char ch) => ch == '.';
+        static bool IsDot(char ch) => ch == ',';
     }
 }

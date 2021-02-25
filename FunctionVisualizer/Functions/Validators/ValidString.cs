@@ -33,7 +33,7 @@ namespace FunctionVisualizer.Functions.Validators
             for (int i = 0; i < str.Length; i++)
                 if (!char.IsWhiteSpace(str[i]))
                     result += str[i];
-            result.ToUpper();
+            result = result.ToUpper();
             return AddMultiplue(result);
         }
         private static string AddMultiplue(string str)

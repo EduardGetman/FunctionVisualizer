@@ -39,8 +39,10 @@ namespace FunctionVisualizer.Functions
                     case TokenType.RigthBracket:
                         while (stackOperators.Peek().Priority != OperatorsPriority.LBracket)
                         {
+                            IExpression secondExp = stackValues.Pop();
+                            IExpression ferstExp = stackValues.Pop();
                             IExpression newOperator = new Operation(stackOperators.Pop().Func,
-                                stackValues.Pop(), stackValues.Pop());
+                                ferstExp, secondExp);
                             stackValues.Push(newOperator);
                         }
                         stackOperators.Pop();
@@ -53,18 +55,31 @@ namespace FunctionVisualizer.Functions
                         break;
                     case TokenType.Operator:
                         operation = new InterpretedOperation(interpStr.Words[i][0]);
-                        if (stackOperators.Peek().Priority < operation.Priority &&
-                            stackOperators.Peek().Priority != OperatorsPriority.LBracket && stackOperators.Count > 0)
+                        if (stackOperators.Count > 0)
                         {
-                            IExpression newOperator = new Operation(stackOperators.Pop().Func,
-                                stackValues.Pop(), stackValues.Pop());
-                            stackValues.Push(newOperator);
+                            if (stackOperators.Peek().Priority >= operation.Priority &&
+                                stackOperators.Peek().Priority != OperatorsPriority.LBracket)
+                            {
+                                IExpression secondExp = stackValues.Pop();
+                                IExpression ferstExp = stackValues.Pop();
+                                IExpression newOperator = new Operation(stackOperators.Pop().Func,
+                                    ferstExp, secondExp);
+                                stackValues.Push(newOperator);
+                            }
                         }
                         stackOperators.Push(operation);
                         break;
                     default:
                         throw new Exception("Произошел неверный парсинг строки");
                 }
+            }
+            while (stackOperators.Count != 0)
+            {
+                IExpression secondExp = stackValues.Pop();
+                IExpression ferstExp = stackValues.Pop();
+                IExpression newOperator = new Operation(stackOperators.Pop().Func,
+                                   ferstExp, secondExp);
+                stackValues.Push(newOperator);
             }
             return stackValues.Pop();
         }

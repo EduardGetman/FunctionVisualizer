@@ -10,6 +10,7 @@ namespace FunctionVisualizer.Functions.Expression
         Add,
         Sub,
         Mul,
-        Div
+        Div,
+        Undefined
     }
 }

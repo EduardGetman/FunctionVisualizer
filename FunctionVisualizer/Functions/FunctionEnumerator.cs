@@ -16,7 +16,7 @@ namespace FunctionVisualizer.Functions
         public FunctionEnumerator(CalculData data,  Function function)
         {
             _Data = data;
-            _Parameter = data.StartInterval;
+            _Parameter = data.StartInterval - data.Step;
             _Function = function;
         }
         public object Current => _Function.Calculate(_Parameter);
@@ -33,7 +33,7 @@ namespace FunctionVisualizer.Functions
 
         public void Reset()
         {
-            _Parameter = _Data.StartInterval;
+            _Parameter = _Data.StartInterval - _Data.Step;
         }
     }
 }
