@@ -35,7 +35,7 @@
   <Class Name="FunctionVisualizer.Functions.Function">
     <Position X="8.75" Y="4" Width="3" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAgAAAgAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAgAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Functions\Function.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -44,7 +44,7 @@
   </Class>
   <Class Name="FunctionVisualizer.Functions.FunctionsControler" BaseTypeListCollapsed="true">
     <Position X="8.5" Y="6.75" Width="3.75" />
-    <AssociationLine Name="_Data" Type="FunctionVisualizer.Functions.СalculData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="_Data" Type="FunctionVisualizer.Functions.CalculData" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="12.031" Y="6.75" />
         <Point X="12.031" Y="6.375" />
@@ -105,17 +105,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FunctionVisualizer.Functions.Interpretation.InterpretedString">
-    <Position X="9.75" Y="10.25" Width="1.5" />
+    <Position X="9.75" Y="10.25" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAAAABACAABAAAAAAAAAAAQAAAEkAAA=</HashCode>
       <FileName>Functions\Interpretation\InterpretedString.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="FunctionVisualizer.Functions.СalculData">
+  <Struct Name="FunctionVisualizer.Functions.CalculData">
     <Position X="13.25" Y="3.75" Width="4.25" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAA=</HashCode>
-      <FileName>Functions\СalculData.cs</FileName>
+      <FileName>Functions\CalculData.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="FunctionVisualizer.Functions.Expression.IExpression">
@@ -128,7 +128,7 @@
   <Enum Name="FunctionVisualizer.Functions.Expression.MathFunc">
     <Position X="0.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAMAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAMAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAACQ=</HashCode>
       <FileName>Functions\Expression\MathFunc.cs</FileName>
     </TypeIdentifier>
   </Enum>
